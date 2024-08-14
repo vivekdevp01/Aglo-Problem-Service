@@ -5,6 +5,7 @@ const apiRouter=require('./routes');
 
 const {PORT}=require('./config/server.config');
 const errorHandler = require('./utils/errorHandler');
+const connectToDB = require('./config/db.config');
 
 
 
@@ -20,8 +21,10 @@ app.get('/ping',(req,res)=>{
 })
 
 app.use(errorHandler);
-app.listen(PORT,()=>{
+app.listen(PORT,async ()=>{
     console.log(`Server listening on ${PORT}`);
+    await connectToDB();
+    console.log('Connected to MongoDB');
 })
 
 
