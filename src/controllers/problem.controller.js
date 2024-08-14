@@ -1,5 +1,6 @@
 const {StatusCodes}=require('http-status-codes');
 const NotImplemented = require('../errors/notimplemented.error');
+const ServiceUnavailable = require('../errors/serviceunavailable.error');
 function ping(req,res){
     return res.json({message:"hey"});
 }
@@ -10,11 +11,17 @@ function addProblem(req,res,next){
     catch(error){
       next(error);
     }
+    // try{
+    //     throw new ServiceUnavailable('getProblem');
+    //     }
+    //     catch(error){
+    //       next(error);
+    //     }
    
 
 }
 function getProblem(req,res){
-    
+   
 }
 function getProblems(req,res){
     
