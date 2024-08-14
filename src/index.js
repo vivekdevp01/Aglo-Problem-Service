@@ -4,6 +4,7 @@ const apiRouter=require('./routes');
 
 
 const {PORT}=require('./config/server.config');
+const errorHandler = require('./utils/errorHandler');
 
 
 
@@ -17,6 +18,8 @@ app.use('/api',apiRouter);
 app.get('/ping',(req,res)=>{
     return res.json({message:"It is running"});
 })
+
+app.use(errorHandler);
 app.listen(PORT,()=>{
     console.log(`Server listening on ${PORT}`);
 })
