@@ -1,9 +1,9 @@
 const mongoose=require('mongoose');
-const { MONGO_URL } = require('./server.config');
+const { ATLAS_URL } = require('./server.config');
 
 async function connectToDB(){
 try{
- await mongoose.connect(MONGO_URL);
+ await mongoose.connect(ATLAS_URL);
 }
 catch(err){
     console.log("unable to connect to Db");
