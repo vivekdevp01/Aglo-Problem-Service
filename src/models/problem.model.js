@@ -11,7 +11,7 @@ description:{
     required:[true,"description cannot be empty"]
 },
 difficulty:{
-    tyoe:String,
+    type:String,
     enum:['easy','medium','hard'],
     required:[true,"difficulty cannot be empty"],
     default:'easy'
