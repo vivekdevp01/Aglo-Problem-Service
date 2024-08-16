@@ -43,5 +43,27 @@ async getProblem(id){
       throw error;
    }
 }
+async deleteProblem(id){
+try {
+   const problem=await this.problemRepository.deleteProblem(id);
+   return problem;
+} catch (error) {
+   console.log(error);
+   throw error;
+   
+}
+
+}
+async updateProblem(id,problemData){
+try {
+   const problem=await this.problemRepository.updateProblem(id,problemData);
+   return problem;
+} catch (error) {
+   console.log(error);
+   throw error;
+   
+}
+
+}
 }
 module.exports=ProblemService;
