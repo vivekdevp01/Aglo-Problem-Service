@@ -55,11 +55,31 @@ async function getProblems(req,res,next){
         next(error);
     }
 }
-function deleteProblem(req,res){
-    
+async function deleteProblem(req,res,next){
+    try {
+        const problem=await problemService.deleteProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:'Problem successfully deleted',
+            error:{},
+            data:problem
+        })
+    } catch (error) {
+        next(error);
+    }
 }
-function updateProblem(req,res){
-    
+async function updateProblem(req,res,next){
+    try {
+        const problem=await problemService.updateProblem(req.params.id,req.body);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:'Problem successfully updated',
+            error:{},
+            data:problem
+        })
+    } catch (error) {
+        next(error);
+    }
 }
 
 
